@@ -1,0 +1,113 @@
+{
+  "train": {
+    "n": 118337,
+    "kind": {
+      "complaint": 67755,
+      "report": 50582
+    },
+    "dataset_lang_label": {
+      "ru": 103905,
+      "lat": 7325,
+      "und": 5017,
+      "uz": 642,
+      "en": 581,
+      "pt": 568,
+      "kk": 299
+    },
+    "server_lang": {
+      "ru": 115094,
+      "uz": 2655,
+      "kk": 588
+    },
+    "verdict": {
+      "null": 50652,
+      "other": 24046,
+      "approved": 15259,
+      "need_evidence": 8984,
+      "appeal_rejected": 6157,
+      "rejected": 6061,
+      "invalid_format": 3199,
+      "appeal_approved": 1544,
+      "duplicate": 1460,
+      "already_punished": 857,
+      "closed": 118
+    },
+    "has_category_or_priority": false,
+    "images_count_min_for_complaints": 1,
+    "player_text_len_median": 19,
+    "texts_with_game_symbols": 95,
+    "texts_with_true_kazakh_letters": 50
+  },
+  "valid": {
+    "n": 1000,
+    "kind": {
+      "complaint": 817,
+      "report": 183
+    },
+    "dataset_lang_label": {
+      "ru": 732,
+      "uz": 119,
+      "lat": 76,
+      "kk": 31,
+      "und": 25,
+      "pt": 10,
+      "en": 7
+    },
+    "server_lang": {
+      "ru": 859,
+      "uz": 133,
+      "kk": 8
+    },
+    "verdict": {
+      "other": 296,
+      "null": 183,
+      "approved": 177,
+      "need_evidence": 127,
+      "appeal_rejected": 75,
+      "rejected": 66,
+      "invalid_format": 35,
+      "duplicate": 18,
+      "appeal_approved": 14,
+      "already_punished": 6,
+      "closed": 3
+    },
+    "has_category_or_priority": false,
+    "images_count_min_for_complaints": 1,
+    "player_text_len_median": 27,
+    "texts_with_game_symbols": 7,
+    "texts_with_true_kazakh_letters": 9
+  },
+  "valid_overlap_with_train": {
+    "ticket_ids": 0,
+    "reporters": 936,
+    "exact_player_text": 341
+  },
+  "lang_label_vs_our_detector_on_valid": {
+    "ru->ru": 724,
+    "uz->uz": 118,
+    "lat->ru": 30,
+    "und->und": 25,
+    "kk->ru": 23,
+    "lat->und": 19,
+    "lat->lat": 16,
+    "lat->uz": 11,
+    "kk->kk": 8,
+    "pt->ru": 7,
+    "ru->kk": 4,
+    "ru->und": 4,
+    "en->en": 4,
+    "en->ru": 3,
+    "pt->lat": 2,
+    "pt->uz": 1,
+    "uz->lat": 1
+  },
+  "rules": {
+    "sections": 10,
+    "points": 266,
+    "headings": 5,
+    "sections_without_points_but_with_text": 1,
+    "refs_used_in_more_than_one_section": 57
+  },
+  "taxonomy_version": "draft-2026-10-27",
+  "taxonomy_note": "Черновик. Категории и правила приоритетов подтверждает руководитель поддержки Grand до открытия задач."
+}

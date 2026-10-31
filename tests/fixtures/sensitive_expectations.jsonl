@@ -1,0 +1,81 @@
+{"text": "Мою учётную запись угнали. Что такое DM?", "kind": "report", "expect": "account"}
+{"text": "К моему профилю привязали чужую почту. Что такое DM?", "kind": "report", "expect": "account"}
+{"text": "Мою учетку угнали, помогите", "kind": "report", "expect": "account"}
+{"text": "Что такое DM? Мою учётку угнали", "kind": "report", "expect": "account"}
+{"text": "Посторонний человек вошёл в мой аккаунт", "kind": "report", "expect": "account"}
+{"text": "Кто-то зашёл в мою учётную запись и сменил пароль", "kind": "report", "expect": "account"}
+{"text": "Мне сменили почту на аккаунте", "kind": "report", "expect": "account"}
+{"text": "На мой аккаунт зашёл неизвестный человек", "kind": "report", "expect": "account"}
+{"text": "Меня взломали", "kind": "report", "expect": "account"}
+{"text": "Мой аккаунт взломан, пропала машина", "kind": "report", "expect": "account"}
+{"text": "Не могу зайти в аккаунт", "kind": "report", "expect": "account"}
+{"text": "Потерял доступ к аккаунту, как восстановить?", "kind": "report", "expect": "account"}
+{"text": "Забыл пароль от аккаунта", "kind": "report", "expect": "account"}
+{"text": "Аккаунтымның поштасын басқа адам ауыстырды. DM деген не?", "kind": "report", "expect": "account"}
+{"text": "Менің аккаунтыма кіре алмаймын. Ойыншыны қорлауға рұқсат па?", "kind": "report", "expect": "account"}
+{"text": "Менің аккаунтымды біреу бұзды", "kind": "report", "expect": "account"}
+{"text": "Аккаунтимга бегона одам кирган. DM nima?", "kind": "report", "expect": "account"}
+{"text": "Akkauntimga begona odam kirgan. DM nima?", "kind": "report", "expect": "account"}
+{"text": "Аккаунтимни бузишди", "kind": "report", "expect": "account"}
+{"text": "Akkauntga kira olmayman", "kind": "report", "expect": "account"}
+{"text": "Someone hacked my account", "kind": "report", "expect": "account"}
+{"text": "A stranger logged into my account", "kind": "report", "expect": "account"}
+{"text": "I can't log in to my account. What is DM?", "kind": "report", "expect": "account"}
+{"text": "Hackearon mi cuenta", "kind": "report", "expect": "account"}
+{"text": "Alguien entró en mi cuenta", "kind": "report", "expect": "account"}
+{"text": "No puedo entrar a mi cuenta", "kind": "report", "expect": "account"}
+{"text": "Hackearam minha conta", "kind": "report", "expect": "account"}
+{"text": "Alguém entrou na minha conta", "kind": "report", "expect": "account"}
+{"text": "Não consigo entrar na minha conta", "kind": "report", "expect": "account"}
+{"text": "Arman_Petrov взломал мой аккаунт", "kind": "complaint", "expect": "account"}
+{"text": "Верните 500 рублей за покупку. Можно ли подать жалобу?", "kind": "report", "expect": "payment"}
+{"text": "Можно ли подать жалобу? Верните 500 рублей за покупку.", "kind": "report", "expect": "payment"}
+{"text": "Я оплатил донат, коины не пришли", "kind": "report", "expect": "payment"}
+{"text": "Списали деньги с карты за подписку, верните пожалуйста", "kind": "report", "expect": "payment"}
+{"text": "Хочу вернуть деньги за подписку", "kind": "report", "expect": "payment"}
+{"text": "I paid for coins and they did not arrive, refund please", "kind": "report", "expect": "payment"}
+{"text": "Pagué una donación y no llegaron las monedas", "kind": "report", "expect": "payment"}
+{"text": "Paguei e não recebi, quero reembolso", "kind": "report", "expect": "payment"}
+{"text": "To'lov qildim, pulni qaytaring", "kind": "report", "expect": "payment"}
+{"text": "Төлем жасадым, қайтарыңыз", "kind": "report", "expect": "payment"}
+{"text": "Я оплатил донат, а игрок украл мои вещи", "kind": "complaint", "expect": "payment"}
+{"text": "Он угрожает убить меня в реальной жизни.", "kind": "complaint", "expect": "threat"}
+{"text": "Угрожает найти мой адрес и приехать", "kind": "complaint", "expect": "threat"}
+{"text": "Игрок обманул на машину и угрожает найти меня в реале", "kind": "complaint", "expect": "threat"}
+{"text": "Прошу пересмотреть блокировку моего аккаунта, я не согласен с наказанием", "kind": "complaint", "expect": "appeal"}
+{"text": "Аккаунт заблокирован, хочу подать апелляцию", "kind": "report", "expect": "appeal"}
+{"text": "Не согласен с баном, снимите наказание", "kind": "report", "expect": "appeal"}
+{"text": "I disagree with my ban, please unban me", "kind": "report", "expect": "appeal"}
+{"text": "Me baneó sin motivo, no estoy de acuerdo", "kind": "report", "expect": "appeal"}
+{"text": "Что такое DM?", "kind": "report", "expect": "none"}
+{"text": "Можно ли оскорблять в чате?", "kind": "report", "expect": "none"}
+{"text": "Как оплатить штраф?", "kind": "report", "expect": "none"}
+{"text": "Как оплатить штрафы?", "kind": "report", "expect": "none"}
+{"text": "Я оплатил штраф за нарушение ПДД", "kind": "report", "expect": "none"}
+{"text": "Я не прошу вернуть деньги, просто скажите, можно ли использовать читы?", "kind": "report", "expect": "none"}
+{"text": "как взломать машину", "kind": "report", "expect": "none"}
+{"text": "Он закрашивал граффити и убил меня", "kind": "complaint", "expect": "none"}
+{"text": "Списал дз у друга", "kind": "report", "expect": "none"}
+{"text": "Чужой автомобиль стоит на моём месте", "kind": "report", "expect": "none"}
+{"text": "Arman_Petrov оскорбил меня в чате", "kind": "complaint", "expect": "none"}
+{"text": "Застрял в текстурах, помогите", "kind": "report", "expect": "none"}
+{"text": "Привет", "kind": "report", "expect": "none"}
+{"text": "Как купить машину?", "kind": "report", "expect": "none"}
+{"text": "Он убил меня в ЗЗ", "kind": "complaint", "expect": "none"}
+{"text": "Игрок использует читы и летает", "kind": "complaint", "expect": "none"}
+{"text": "Что такое ДБ? Можно ли так делать?", "kind": "report", "expect": "none"}
+{"text": "Is it allowed to advertise on the server?", "kind": "report", "expect": "none"}
+{"text": "Ойыншы менің ақшамды алдап алды", "kind": "report", "expect": "none"}
+{"text": "Мне отвязали электронную почту, теперь не могу восстановить профиль. Что такое DM?", "kind": "report", "expect": "account"}
+{"text": "В профиле теперь чужая почта. Можно ли использовать читы?", "kind": "report", "expect": "account"}
+{"text": "Я больше не контролирую свою учётную запись. Что такое DM?", "kind": "report", "expect": "account"}
+{"text": "Аккаунтымды басқара алмаймын, поштамды біреу өзгертті", "kind": "report", "expect": "account"}
+{"text": "Akkauntimni boshqara olmayman, pochtamni o'zgartirishdi", "kind": "report", "expect": "account"}
+{"text": "Дважды сняли 500 тенге за один пакет. Что такое DM?", "kind": "report", "expect": "payment"}
+{"text": "Ikki marta pul yechildi bitta donat uchun", "kind": "report", "expect": "payment"}
+{"text": "Екі рет ақша алынды бір донат үшін", "kind": "report", "expect": "payment"}
+{"text": "Как оплатить свой штраф?", "kind": "report", "expect": "none"}
+{"text": "Не пришла зарплата за работу таксистом", "kind": "report", "expect": "none"}
+{"text": "Я поменял мой пароль и теперь всё работает", "kind": "report", "expect": "none"}
+{"text": "Игрок сказал, что найдёт меня в игре возле дома", "kind": "complaint", "expect": "none"}
+{"text": "Мне нужен пароль от сейфа в доме", "kind": "report", "expect": "none"}

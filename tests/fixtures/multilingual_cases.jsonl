@@ -1,0 +1,57 @@
+{"group": "pure_ru", "text": "Игрок оскорбил меня в чате у банка", "abuse": false, "types": [], "direction": null, "lang": "ru", "mixed": false}
+{"group": "pure_kk", "text": "Ол мені чатта қорлады, скриндер бар", "abuse": false, "types": [], "direction": null, "lang": "kk", "mixed": false}
+{"group": "kk_cp1251", "text": "Сјлеметсіз, кґмек керек, текстурада тұрып қалдым", "abuse": false, "types": [], "direction": null, "lang": "kk", "mixed": false}
+{"group": "kk_latin", "text": "salem, komek kerek, men tekstura ishinde qaldym", "abuse": false, "types": [], "direction": null, "lang": "kk", "mixed": false}
+{"group": "ru_latin", "text": "oskorbil rodni v chate, skriny est", "abuse": false, "types": [], "direction": null, "lang": "lat", "mixed": false}
+{"group": "pure_uz", "text": "salom admin, meni haqorat qildi, skrinshot bor", "abuse": false, "types": [], "direction": null, "lang": "uz", "mixed": false}
+{"group": "pure_en", "text": "hello, I am stuck under the map, please help", "abuse": false, "types": [], "direction": null, "lang": "en", "mixed": false}
+{"group": "pure_es", "text": "hola, me mató sin motivo en la zona verde", "abuse": false, "types": [], "direction": null, "lang": "es", "mixed": false}
+{"group": "pure_pt", "text": "olá, ele me matou sem motivo, preciso de ajuda", "abuse": false, "types": [], "direction": null, "lang": "pt", "mixed": false}
+{"group": "ru_kk", "text": "Ол мені оскорбил в чате", "abuse": false, "types": [], "direction": null, "lang": null, "mixed": true}
+{"group": "ru_en", "text": "меня убили у банка, please help admin", "abuse": false, "types": [], "direction": null, "lang": null, "mixed": true}
+{"group": "kk_en", "text": "Сәлем, help me please, мен тұрып қалдым", "abuse": false, "types": [], "direction": null, "lang": null, "mixed": true}
+{"group": "three_lang", "text": "Сәлем бро, help me please, застрял в текстурах", "abuse": false, "types": [], "direction": null, "lang": null, "mixed": true}
+{"group": "uz_ru", "text": "salom admin, meni haqorat qildi, скрины есть", "abuse": false, "types": [], "direction": null, "lang": null, "mixed": true}
+{"group": "obf_dots", "text": "он написал мне с.у.к.а", "abuse": true, "types": ["insult"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "obf_spaces", "text": "он написал: с у к а", "abuse": true, "types": ["insult"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "obf_repeat", "text": "он мне пишет сууукааа", "abuse": true, "types": ["insult"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "obf_digits", "text": "он написал 3ае6ал уже", "abuse": true, "types": ["profanity"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "obf_star", "text": "he wrote f*ck you", "abuse": true, "types": ["profanity"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "obf_lookalike", "text": "он написал «cyka»", "abuse": true, "types": ["insult"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "obf_zero_width", "text": "он написал с​у​к​а", "abuse": true, "types": ["insult"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "misspelled_report", "text": "он меня аскарбил и маму упомянул", "abuse": false, "types": [], "direction": null, "lang": "ru", "mixed": null}
+{"group": "reported_ru", "text": "Игрок назвал меня сукой", "abuse": true, "types": ["insult"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "quoted_ru", "text": "он написал «ты дебил и мать твою»", "abuse": true, "types": ["family_insult"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "reported_kk", "text": "ол маған жалап деді", "abuse": true, "types": ["insult"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "reported_uz", "text": "u meni onangni deb so'kdi", "abuse": true, "types": ["family_insult"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "reported_en", "text": "Timur_Belov said fuck you and your mom", "abuse": true, "types": ["family_insult"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "author_to_admin", "text": "админы вы чё творите, дебилы", "abuse": true, "types": ["insult"], "direction": "author_to_addressee", "lang": null, "mixed": null}
+{"group": "author_expressive", "text": "бля меня опять убили у банка", "abuse": true, "types": ["profanity"], "direction": "author_expressive", "lang": null, "mixed": null}
+{"group": "threat_real", "text": "найду тебя в реальной жизни и убью", "abuse": true, "types": ["threat"], "direction": null, "lang": null, "mixed": null}
+{"group": "threat_game", "text": "убью тебя в игре", "abuse": true, "types": ["threat"], "direction": null, "lang": null, "mixed": null}
+{"group": "threat_uz", "text": "o'ldiraman seni, uyingga boraman", "abuse": true, "types": ["threat"], "direction": null, "lang": null, "mixed": null}
+{"group": "hate_ru", "text": "он написал мне «ты чурка»", "abuse": true, "types": ["hate_speech"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "sexual_ru", "text": "он пишет мне «скинь нюдсы, соси»", "abuse": true, "types": ["sexual_harassment"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "kk_sexual_family", "text": "ол шешеңді сіктім деді", "abuse": true, "types": ["family_insult"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "fp_words", "text": "застрахуй машину, корабля нет, употреблять, колебаться, скипидар, сукно, хохлома, Нигерия, сосиска", "abuse": false, "types": [], "direction": null, "lang": null, "mixed": null}
+{"group": "fp_en", "text": "your moment has come, Dickens, grape juice", "abuse": false, "types": [], "direction": null, "lang": null, "mixed": null}
+{"group": "fp_slang", "text": "го катку бро, изи катка, гг", "abuse": false, "types": [], "direction": null, "lang": null, "mixed": null}
+{"group": "fp_report_word", "text": "Жалоба на оскорбление в чате, оскорблял мою семью", "abuse": false, "types": [], "direction": null, "lang": null, "mixed": null}
+{"group": "joke", "text": "ахах ну ты и лох бро)))", "abuse": true, "types": ["insult"], "direction": "author_to_addressee", "lang": null, "mixed": null}
+{"group": "lim_kk_latin_ambiguous", "text": "meni chatta qorlady, skrin bar", "abuse": false, "types": [], "direction": null, "lang": "kk", "mixed": null, "known_limitation": "Kazakh and Uzbek Latin share most words here: detected as uz"}
+{"group": "lim_euphemism", "text": "он назвал меня нехорошим словом на букву х", "abuse": true, "types": ["profanity"], "direction": null, "lang": null, "mixed": null, "known_limitation": "euphemisms without the word itself are not recognised"}
+{"group": "lim_kk_insult_word", "text": "ол мені ит деп атады", "abuse": true, "types": ["insult"], "direction": null, "lang": null, "mixed": null, "known_limitation": "single-word Kazakh insults like «ит» (dog) are not in the lexicon (too ambiguous)"}
+{"group": "fp_misspelt_complaint", "text": "сколько ждать ответа на мою жалабу, подал жалабу вчера", "abuse": false, "types": [], "direction": null, "lang": null, "mixed": null}
+{"group": "fp_uz_documents", "text": "hujjatlarini tekshiring, hujjatlar bor", "abuse": false, "types": [], "direction": null, "lang": null, "mixed": null}
+{"group": "xs_kk_in_ru_letters", "text": "он мне написал «сен котак»", "abuse": true, "types": ["profanity"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "xs_kk_in_latin", "text": "ол маған «qotaq» деп жазды", "abuse": true, "types": ["profanity"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "xs_kk_family_ru_letters", "text": "он написал «шешенди сиктим»", "abuse": true, "types": ["family_insult"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "xs_kk_latin_family", "text": "u menga «sheshendi sigeyin» dedi", "abuse": true, "types": ["family_insult"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "xs_en_in_cyrillic", "text": "он пишет мне «фак ю»", "abuse": true, "types": ["profanity"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "xs_en_in_cyrillic_family", "text": "он назвал меня мазафака", "abuse": true, "types": ["family_insult"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "xs_ru_latin_plus_cyr", "text": "он написал «blyad ты чмо»", "abuse": true, "types": ["profanity", "insult"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "xs_uz_cyrillic", "text": "у мени «онангни» деб сўкди", "abuse": true, "types": ["family_insult"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "xs_mixed_letters_in_word", "text": "он написал «пiзда» и «убlyдок»", "abuse": true, "types": ["profanity", "insult"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "xs_two_languages_one_sentence", "text": "он написал «ебаный qotaq, fuck you»", "abuse": true, "types": ["profanity"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "xs_kk_phrase", "text": "он сказал «ит баласы»", "abuse": true, "types": ["insult"], "direction": "quoted_or_reported", "lang": null, "mixed": null}
+{"group": "fp_cross_script", "text": "faqat men, шить платье, амин, сигара, Амина, фактически, факт, Сукачев, hue of the sky, Fakhriddin, akmal", "abuse": false, "types": [], "direction": null, "lang": null, "mixed": null}

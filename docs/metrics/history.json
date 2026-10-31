@@ -1,0 +1,185 @@
+{
+  "source": "tickets_train.jsonl.gz (TRAIN only)",
+  "min_count_for_strings": 50,
+  "note": "historical administrator decisions: a pattern, not ground truth",
+  "tickets": {
+    "total": 118337,
+    "complaints": 67755,
+    "reports": 50582
+  },
+  "dataset_lang": {
+    "ru": 103905,
+    "lat": 7325,
+    "und": 5017,
+    "uz": 642,
+    "en": 581,
+    "pt": 568,
+    "kk": 299
+  },
+  "complaint_verdicts": {
+    "other": 24046,
+    "approved": 15259,
+    "need_evidence": 8984,
+    "appeal_rejected": 6157,
+    "rejected": 6061,
+    "invalid_format": 3199,
+    "appeal_approved": 1544,
+    "duplicate": 1460,
+    "already_punished": 857,
+    "closed": 118,
+    "none": 70
+  },
+  "top_punishments": [
+    [
+      "мут на 30 минут",
+      1298
+    ],
+    [
+      "бан на 7 дней",
+      820
+    ],
+    [
+      "мут на 15 минут",
+      325
+    ],
+    [
+      "мут на 20 минут",
+      319
+    ],
+    [
+      "бан на 10 дней",
+      314
+    ],
+    [
+      "предупреждение",
+      276
+    ],
+    [
+      "блокировкой аккаунта на 7 дней",
+      264
+    ],
+    [
+      "блокировкой чата на 30 минут",
+      212
+    ],
+    [
+      "мут на 90 минут",
+      197
+    ],
+    [
+      "бан на 3 дня",
+      179
+    ]
+  ],
+  "images_per_complaint_median": 1,
+  "repeat_behaviour": {
+    "reporters_with_2plus_complaints_share": 0.6304,
+    "accused_with_3plus_complaints_share": 0.1946,
+    "complaints_about_accused_with_3plus": 0.5673,
+    "note": "train holds all tickets of a random 20 % of reporters, so accused players' counts are undercounted"
+  },
+  "verdict_by_predicted_category": {
+    "classifier": "hybrid: lexicon + learned model",
+    "sample": 15000,
+    "rows": {
+      "complaint.insult": {
+        "n": 5637,
+        "approved": 0.435,
+        "other": 0.369,
+        "need_evidence": 0.061,
+        "rejected": 0.056,
+        "invalid_format": 0.038,
+        "already_punished": 0.021,
+        "duplicate": 0.015,
+        "closed": 0.003,
+        "appeal_rejected": 0.001,
+        "none": 0.001
+      },
+      "complaint.admin": {
+        "n": 4765,
+        "other": 0.385,
+        "appeal_rejected": 0.28,
+        "rejected": 0.081,
+        "appeal_approved": 0.067,
+        "invalid_format": 0.064,
+        "need_evidence": 0.05,
+        "duplicate": 0.039,
+        "approved": 0.029,
+        "none": 0.002,
+        "already_punished": 0.002,
+        "closed": 0.001
+      },
+      "complaint.dm": {
+        "n": 2755,
+        "need_evidence": 0.362,
+        "other": 0.256,
+        "approved": 0.168,
+        "rejected": 0.158,
+        "invalid_format": 0.033,
+        "duplicate": 0.008,
+        "already_punished": 0.006,
+        "appeal_rejected": 0.005,
+        "closed": 0.002,
+        "none": 0.001,
+        "appeal_approved": 0.0
+      },
+      "complaint.other": {
+        "n": 607,
+        "other": 0.456,
+        "approved": 0.28,
+        "rejected": 0.112,
+        "need_evidence": 0.074,
+        "invalid_format": 0.031,
+        "already_punished": 0.02,
+        "duplicate": 0.013,
+        "appeal_rejected": 0.008,
+        "appeal_approved": 0.003,
+        "none": 0.002
+      },
+      "complaint.scam": {
+        "n": 543,
+        "need_evidence": 0.372,
+        "other": 0.291,
+        "rejected": 0.12,
+        "approved": 0.114,
+        "duplicate": 0.048,
+        "invalid_format": 0.044,
+        "already_punished": 0.007,
+        "none": 0.002,
+        "closed": 0.002
+      },
+      "complaint.cheat": {
+        "n": 537,
+        "other": 0.399,
+        "approved": 0.194,
+        "need_evidence": 0.184,
+        "rejected": 0.108,
+        "invalid_format": 0.06,
+        "already_punished": 0.019,
+        "appeal_rejected": 0.015,
+        "duplicate": 0.015,
+        "appeal_approved": 0.006,
+        "none": 0.002
+      },
+      "complaint.invalid": {
+        "n": 118,
+        "other": 0.331,
+        "rejected": 0.203,
+        "appeal_rejected": 0.136,
+        "invalid_format": 0.11,
+        "approved": 0.093,
+        "need_evidence": 0.051,
+        "appeal_approved": 0.042,
+        "duplicate": 0.034
+      }
+    }
+  },
+  "report_categories_sample": {
+    "report.question": 5370,
+    "report.offtopic": 4775,
+    "report.complaint": 2873,
+    "report.help": 1922,
+    "report.payment": 51,
+    "report.account": 9
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "date": "2026-10-31",
+  "tickets": "18 artificial demo tickets x 2 (tests/fixtures/demo_tickets.jsonl), no real player data",
+  "calls": 28,
+  "answers_by_mode": {
+    "llm": 17,
+    "template": 11
+  },
+  "rejections_or_failures": {
+    "sentence outside the allowed types": 9,
+    "free text": 1,
+    "http 503": 1
+  },
+  "llm_draft_acceptance_rate": 0.607,
+  "latency_ms_total_triage": {
+    "p50": 1027,
+    "p95": 1368
+  },
+  "mean_tokens_in": 743,
+  "mean_tokens_out": 102,
+  "cost_usd_per_ticket_measured": null,
+  "note": "free tier, calls paced 4 s apart (the free tier answers 429 above its per-minute quota and 503 under load); sensitive tickets never reach the model; before two fixes (a reference template without rule words, verbatim template sentences trusted) acceptance was 0.139. Cost: tokens are measured; the price per token must be set from the provider's price page (LLM_PRICE_*), it is not assumed here"
+}

@@ -1,0 +1,15 @@
+{
+  "train_tickets_read": 118337,
+  "question_tickets_without_rule_answer": 3175,
+  "signatures": 2889,
+  "candidates": 2,
+  "replies_rejected_by_reason": {
+    "too short to be an explanation": 63,
+    "contains a number (amount, time, level, rule)": 14,
+    "personal outcome (addressed to one player)": 13,
+    "an administrator's acknowledgement of his own action, not knowledge": 4,
+    "link, command or instruction that cannot be verified": 2,
+    "claims a transfer": 4,
+    "sanction/refund topic without negation, deadline or procedure": 2
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "note": "weak: truth = admin verdict 'duplicate' (complaints only; admins close duplicates inconsistently); not the hidden labelling",
+  "tickets": 119337,
+  "verdict_duplicate": 1478,
+  "flagged": 5567,
+  "precision_vs_verdict": 0.0803,
+  "recall_vs_verdict": 0.3024,
+  "flagged_by_verdict": {
+    "null": 3012,
+    "other": 761,
+    "duplicate": 447,
+    "approved": 368,
+    "invalid_format": 255,
+    "rejected": 243,
+    "need_evidence": 197,
+    "already_punished": 132,
+    "appeal_rejected": 112,
+    "appeal_approved": 23,
+    "closed": 17
+  },
+  "flagged_by_kind": {
+    "complaint": 2559,
+    "report": 3008
+  },
+  "related_complaints": {
+    "note": "complaints that have earlier complaints about the same accused player from OTHER authors within 24 h; weak check: share of admin verdict 'already_punished' with and without such related complaints",
+    "complaints_with_related": 7516,
+    "complaints_without_related": 60986,
+    "already_punished_rate_with_related": 0.014,
+    "already_punished_rate_without_related": 0.0124
+  }
+}

@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support Copilot — панель администратора</title>
+<style>
+:root{--bg:#f4f5f7;--panel:#fff;--ink:#1c2230;--muted:#5d6678;--line:#dde1e8;--brand:#2f5bea;--brand-ink:#fff;
+--p0:#c62828;--p1:#e65100;--p2:#1565c0;--p3:#546e7a;--ok:#2e7d32;--warn:#8d6e00;--warn-bg:#fff6d6;--soft:#eef1f7}
+@media (prefers-color-scheme:dark){:root{--bg:#12151c;--panel:#1b2030;--ink:#e8ebf2;--muted:#9aa3b5;--line:#2c3447;--brand:#6c8cff;--brand-ink:#0b1020;
+--p0:#ff6b6b;--p1:#ffa04d;--p2:#6aa8ff;--p3:#9fb3c0;--ok:#6fd37a;--warn:#f1d36b;--warn-bg:#3a3220;--soft:#232a3d}}
+*{box-sizing:border-box}body{margin:0;font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+header{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:10px 16px;background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+h1{font-size:16px;margin:0}.badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:600;border:1px solid var(--line);background:var(--soft)}
+.mode{background:var(--warn-bg);color:var(--warn);border-color:transparent}
+main{display:grid;grid-template-columns:minmax(320px,430px) 1fr;gap:12px;padding:12px 16px;max-width:1500px;margin:0 auto}
+@media(max-width:860px){main{grid-template-columns:minmax(0,1fr);padding:12px}.bars{grid-template-columns:minmax(0,1.2fr) 1fr 3.5em}.bars>div{overflow-wrap:anywhere}}
+.card,.detail>*{min-width:0}header a{color:inherit;text-decoration:none}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px}
+.filters{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px}.filters .wide{grid-column:1/-1}
+select,input,textarea,button{font:inherit;color:inherit}
+select,input,textarea{width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
+textarea{min-height:190px;resize:vertical}
+button{padding:7px 12px;border-radius:8px;border:1px solid var(--line);background:var(--soft);cursor:pointer}
+button.primary{background:var(--brand);color:var(--brand-ink);border-color:transparent;font-weight:600}
+button:disabled{opacity:.55;cursor:not-allowed}button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible,li:focus-visible{outline:2px solid var(--brand);outline-offset:1px}
+ul.queue{list-style:none;margin:0;padding:0;max-height:calc(100vh - 290px);overflow:auto}
+ul.queue li{padding:9px 12px;border-top:1px solid var(--line);cursor:pointer}ul.queue li:hover,ul.queue li.sel{background:var(--soft)}
+.row{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.muted{color:var(--muted)}.small{font-size:12px}
+.pri{font-weight:700;border-radius:6px;padding:0 6px;color:#fff}.pri.p0{background:var(--p0)}.pri.p1{background:var(--p1)}.pri.p2{background:var(--p2)}.pri.p3{background:var(--p3)}
+.detail{padding:14px;display:flex;flex-direction:column;gap:12px}.detail h2{font-size:14px;margin:0 0 4px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.quote{white-space:pre-wrap;background:var(--soft);padding:10px;border-radius:8px;border-left:3px solid var(--line)}
+.human{background:var(--warn-bg);color:var(--ink);border-left:3px solid var(--warn);padding:8px 10px;border-radius:8px}
+.rule{padding:8px 10px;border:1px solid var(--line);border-radius:8px}.rule b{font-variant-numeric:tabular-nums}
+.kv{display:grid;grid-template-columns:150px 1fr;gap:2px 10px}.kv div:nth-child(odd){color:var(--muted)}
+.notice{padding:8px 10px;border-radius:8px;background:var(--soft)}.notice.err{background:#fde7e7;color:#8a1c1c}.notice.ok{background:#e3f4e6;color:#1b5e20}
+@media (prefers-color-scheme:dark){.notice.err{background:#4a2222;color:#ffb4b4}.notice.ok{background:#1f3a24;color:#b7f0bf}}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid var(--line);border-top-color:var(--brand);border-radius:50%;animation:s .8s linear infinite;vertical-align:-2px}@keyframes s{to{transform:rotate(360deg)}}
+details summary{cursor:pointer;color:var(--muted)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+.tile{border:1px solid var(--line);border-radius:10px;padding:10px 12px}.tile .v{font-size:24px;font-weight:700;font-variant-numeric:tabular-nums}.tile .l{color:var(--muted);font-size:12px}
+.tile.alert{border-color:var(--p0)}.tile.alert .v{color:var(--p0)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.bars{display:grid;grid-template-columns:minmax(90px,max-content) 1fr 3.5em;gap:4px 8px;align-items:center;font-size:13px}
+.bars .track{height:12px;border-radius:0 4px 4px 0;background:transparent}.bars .fill{height:100%;border-radius:0 4px 4px 0;background:var(--brand);min-width:2px}
+.bars .num{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+table.t{border-collapse:collapse;width:100%;font-size:13px}table.t th,table.t td{padding:4px 6px;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums}
+table.t th:first-child,table.t td:first-child{text-align:left}table.t th{color:var(--muted);font-weight:600}
+.scroll{overflow-x:auto}
+mark.tox{background:var(--warn-bg);color:inherit;border-bottom:2px solid var(--p1);border-radius:3px;padding:0 1px;cursor:help}mark.tox.s3{border-bottom-color:var(--p0)}mark.tox.s1{border-bottom-style:dashed}
+.segs{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.seg{border:1px solid var(--line);border-radius:8px;padding:2px 8px;font-size:12px}.seg b{margin-right:4px}.alerts li{cursor:pointer;padding:6px 8px;border-radius:8px}.alerts li:hover{background:var(--soft)}
+</style>
+</head>
+<body>
+<header>
+  <h1>Support Copilot · Grand Mobile</h1>
+  <span id="mode" class="badge mode">режим: загрузка…</span>
+  <span id="stats" class="muted small"></span>
+  <span style="flex:1"></span>
+  <span id="clf" class="badge" title="Как определяется категория жалобы"></span>
+  <button id="dashbtn">Дашборд</button>
+  <button id="modbtn" title="Проверить любой текст: языки по сегментам и оскорбления с подсветкой">Модерация</button>
+  <button id="seed" title="Загрузить искусственные демонстрационные обращения">Демо-данные</button>
+  <a href="/api/edits" target="_blank" rel="noopener"><button type="button" title="Правки администраторов как обучающий сигнал (JSON)">Экспорт правок</button></a>
+  <button id="tplbtn"title="Предложения шаблонов по кластерам похожих обращений">Шаблоны</button>
+  <button id="newbtn">Новое обращение</button>
+</header>
+<main>
+  <section class="card">
+    <div class="filters" role="search">
+      <select id="f-category" aria-label="Категория"><option value="">Все категории</option></select>
+      <select id="f-priority" aria-label="Приоритет"><option value="">Любой приоритет</option><option>p0</option><option>p1</option><option>p2</option><option>p3</option></select>
+      <select id="f-lang" aria-label="Язык"><option value="">Любой язык</option><option>ru</option><option>kk</option><option>uz</option><option>en</option><option>es</option><option>pt</option><option>lat</option><option>und</option></select>
+      <select id="f-human" aria-label="Нужен человек"><option value="">Человек: любой</option><option value="1">Нужен человек</option><option value="0">Можно без человека</option></select>
+      <select id="f-status" aria-label="Статус"><option value="">Любой статус</option><option value="new">Новые</option><option value="edited">Отредактированы</option><option value="approved_local">Подтверждены локально</option><option value="escalated">Эскалированы</option></select>
+      <input id="f-q" class="wide" placeholder="Поиск по тексту обращения" aria-label="Поиск">
+    </div>
+    <div id="qstate" class="small muted" style="padding:0 12px 8px"></div>
+    <ul id="queue" class="queue" aria-label="Очередь обращений"></ul>
+  </section>
+  <section class="card detail" id="detail"><div class="muted">Загрузка дашборда…</div></section>
+</main>
+<script>
+const $ = s => document.querySelector(s);
+const CATS = ["complaint.insult","complaint.cheat","complaint.dm","complaint.scam","complaint.rmt_ads","complaint.admin","complaint.other","complaint.invalid","report.question","report.help","report.complaint","report.account","report.payment","report.offtopic"];
+const CATNAME = {"complaint.insult":"Оскорбления","complaint.cheat":"Читы","complaint.dm":"DM / нарушение РП","complaint.scam":"Обман","complaint.rmt_ads":"Реклама / RMT","complaint.admin":"На администратора","complaint.other":"Другое нарушение","complaint.invalid":"Не жалоба / без доказательств","report.question":"Вопрос","report.help":"Просьба о помощи","report.complaint":"Жалоба через репорт","report.account":"Аккаунт","report.payment":"Платёж","report.offtopic":"Оффтоп"};
+const STATUS = {new:"новое",edited:"отредактировано",approved_local:"подтверждено локально",escalated:"эскалировано"};
+let current = null;
+for (const c of CATS) { const o = document.createElement("option"); o.value = c; o.textContent = `${c} — ${CATNAME[c]}`; $("#f-category").append(o); }
+
+// API token (only when the server has API_TOKENS set): kept for this browser tab only
+function token() { try { return sessionStorage.getItem("copilot-token") || ""; } catch { return ""; } }
+async function api(path, opts, retried) {
+  const headers = {"content-type": "application/json"};
+  if (token()) headers.authorization = "Bearer " + token();
+  const r = await fetch(path, opts ? {method: "POST", headers, body: JSON.stringify(opts)} : {headers});
+  if (r.status === 401 && !retried) {
+    const t = prompt("Сервер требует API-токен (роль viewer или admin):");
+    if (t) { try { sessionStorage.setItem("copilot-token", t.trim()); } catch {} return api(path, opts, true); }
+  }
+  if (!r.ok) { let m = r.statusText; try { m = (await r.json()).detail || m; } catch {} throw new Error(`${r.status}: ${typeof m === "string" ? m : JSON.stringify(m)}`); }
+  return r.json();
+}
+const el = (tag, props = {}, ...kids) => { const e = Object.assign(document.createElement(tag), props); e.append(...kids); return e; };
+
+async function loadMeta() {
+  try {
+    const h = await api("/health");
+    $("#mode").textContent = h.llm_enabled ? "режим: LLM + шаблон-фолбэк" : "режим: ДЕМО (шаблоны, без модели)";
+    $("#mode").title = h.mode;
+    $("#clf").textContent = h.model_meta && h.model_meta.n_train ? "классификатор: гибрид (словарь + модель)" : "классификатор: словарь";
+    $("#clf").title = h.classifier;
+    const s = await api("/api/stats");
+    $("#stats").textContent = `в очереди: ${s.total} · нужен человек: ${s.needs_human} · правок сохранено: ${s.edits}`;
+  } catch (e) { $("#mode").textContent = "сервер недоступен"; }
+}
+
+async function loadQueue() {
+  const p = new URLSearchParams({category: $("#f-category").value, priority: $("#f-priority").value, lang: $("#f-lang").value,
+    needs_human: $("#f-human").value, status: $("#f-status").value, q: $("#f-q").value, limit: 100});
+  $("#qstate").replaceChildren(el("span", {className: "spinner"}), " загрузка…");
+  try {
+    const d = await api("/api/queue?" + p);
+    $("#qstate").textContent = d.total ? `Найдено: ${d.total}` : "Ничего не найдено. Измените фильтры или загрузите демо-данные.";
+    $("#queue").replaceChildren(...d.items.map(t => {
+      const li = el("li", {tabIndex: 0, className: current === t.id ? "sel" : ""},
+        el("div", {className: "row"}, el("span", {className: "pri " + t.priority}, t.priority), el("b", {}, t.category), el("span", {className: "badge"}, t.lang),
+          t.needs_human ? el("span", {className: "badge"}, "человек") : "", t.is_dup ? el("span", {className: "badge"}, "дубль") : "",
+          el("span", {className: "muted small"}, STATUS[t.status] || t.status)),
+        el("div", {className: "muted"}, (t.preview || "(пусто)").slice(0, 110)));
+      li.onclick = () => open(t.id); li.onkeydown = e => { if (e.key === "Enter") open(t.id); };
+      return li;
+    }));
+  } catch (e) { $("#qstate").replaceChildren(el("span", {className: "notice err"}, "Не удалось загрузить очередь: " + e.message)); }
+}
+
+async function open(id) {
+  current = id; $("#detail").replaceChildren(el("div", {}, el("span", {className: "spinner"}), " загрузка…"));
+  try { render(await api("/api/tickets/" + id)); loadQueue(); }
+  catch (e) { $("#detail").replaceChildren(el("div", {className: "notice err"}, "Не удалось открыть обращение: " + e.message)); }
+}
+
+function render(t) {
+  const r = t.response, ex = r.extracted;
+  const msgs = t.request.messages.map(m => el("div", {className: "quote"}, el("div", {className: "muted small"}, m.role + (m.attachments ? ` · вложений: ${m.attachments}` : "")), m.text || "(пусто)"));
+  const msg = el("div", {className: "notice", id: "msg", hidden: true});
+  const ta = el("textarea", {id: "draft", value: t.final_text ?? r.draft_reply.text, ariaLabel: "Черновик ответа"});
+  const buttons = [["Править и сохранить", "save"], ["Отправить (только локально, игроку не уйдёт)", "approve", true], ["Эскалировать", "escalate"]].map(([label, act, primary]) => {
+    const b = el("button", {className: primary ? "primary" : "", textContent: label});
+    b.onclick = async () => {
+      document.querySelectorAll("#detail button").forEach(x => x.disabled = true);
+      msg.hidden = false; msg.className = "notice"; msg.replaceChildren(el("span", {className: "spinner"}), " сохраняю…");
+      try {
+        const note = act === "escalate" ? (prompt("Комментарий для старшего администратора (необязательно):") || null) : null;
+        const res = await api(`/api/tickets/${t.id}/${act}`, {text: ta.value, note});
+        msg.className = "notice ok";
+        msg.textContent = act === "approve" ? "Сохранено ЛОКАЛЬНО. Игроку ничего не отправлено: игра не подключена." : act === "save" ? "Правка сохранена (используется как обратная связь)." : "Обращение помечено как эскалированное (локально).";
+        loadQueue(); loadMeta(); t.final_text = res.final_text;
+      } catch (e) { msg.className = "notice err"; msg.textContent = "Ошибка: " + e.message; }
+      finally { document.querySelectorAll("#detail button").forEach(x => x.disabled = false); }
+    };
+    return b;
+  });
+  const fcat = el("select", {ariaLabel: "Правильная категория"}, ...CATS.map(c => el("option", {value: c, selected: c === r.category}, `${c} — ${CATNAME[c]}`)));
+  const fpri = el("select", {ariaLabel: "Правильный приоритет"}, ...["p0", "p1", "p2", "p3"].map(p => el("option", {value: p, selected: p === r.priority}, p)));
+  const frate = el("select", {ariaLabel: "Оценка черновика"}, el("option", {value: ""}, "оценка черновика: —"), ...[5, 4, 3, 2, 1].map(n => el("option", {value: n}, "оценка черновика: " + n)));
+  const fmsg = el("div", {className: "small", hidden: true});
+  const fbtn = el("button", {textContent: "Сохранить решение"});
+  fbtn.onclick = async () => {
+    fbtn.disabled = true;
+    try {
+      const res = await api(`/api/tickets/${t.id}/decision`, {final_category: fcat.value, final_priority: fpri.value, draft_rating: frate.value ? +frate.value : null});
+      fmsg.hidden = false; fmsg.className = "notice ok small";
+      fmsg.textContent = `Сохранено как разметка администратора: категория ${res.category_correct ? "подтверждена" : "исправлена"}, приоритет ${res.priority_correct ? "подтверждён" : "исправлен"}. Используется для оценки точности и при следующем make train.`;
+    } catch (e) { fmsg.hidden = false; fmsg.className = "notice err small"; fmsg.textContent = "Ошибка: " + e.message; }
+    finally { fbtn.disabled = false; }
+  };
+  const decision = el("div", {}, el("h2", {}, "Решение администратора (разметка для оценки и обучения)"),
+    el("div", {className: "filters", style: "padding:0"}, fcat, fpri, frate, fbtn), fmsg);
+  const rules = (t.rules_detail || []).map(d => el("div", {className: "rule"}, el("div", {}, el("b", {}, d.cite), " · раздел «" + d.section + "»"), el("div", {className: "muted"}, d.text)))
+    .concat((t.terms_detail || []).map(d => el("div", {className: "rule"}, el("div", {}, el("b", {}, d.abbr), " · термин (" + d.name + ") · раздел «" + d.section + "», без номера пункта"), el("div", {className: "muted"}, d.definition))));
+  $("#detail").replaceChildren(
+    el("div", {className: "row"}, el("span", {className: "pri " + r.priority}, r.priority), el("b", {}, `${r.category} — ${CATNAME[r.category]}`), el("span", {className: "badge"}, "язык: " + r.lang),
+      el("span", {className: "badge", title: "Гибрид: вероятность модели, смешанная со словарём; словарь: эвристика. Не откалибровано."}, "уверенность: " + r.confidence), r.needs_human ? el("span", {className: "badge"}, "нужен человек") : el("span", {className: "badge"}, "можно автоответ после просмотра"),
+      r.is_spam_or_duplicate ? el("span", {className: "badge"}, "спам/дубль") : "", el("span", {className: "badge"}, STATUS[t.status] || t.status)),
+    el("div", {}, el("h2", {}, "Исходный текст"), ...msgs),
+    el("div", {className: "human"}, el("b", {}, "Почему так: "), el("ul", {style: "margin:4px 0 0 18px;padding:0"}, ...r.reasons.map(x => el("li", {}, x)))),
+    t.moderation ? el("div", {}, el("h2", {}, "Анализ модерации (языки и оскорбления)"), moderationBlock(t.moderation)) : "",
+    decision,
+    el("div", {}, el("h2", {}, "Найденные правила (процитированы в ответе)"), ...(rules.length ? rules : [el("div", {className: "muted"}, "Правила не цитируются: для этой ситуации подходящего пункта нет или он не нужен.")])),
+    el("div", {}, el("h2", {}, "Извлечено"), el("div", {className: "kv"},
+      el("div", {}, "Ник"), el("div", {}, ex.nickname || "—"), el("div", {}, "Пункты, названные игроком"), el("div", {}, ex.rule_refs.join(", ") || "—") ,
+      el("div", {}, "Несуществующие пункты"), el("div", {}, ex.rule_refs_unverified.join(", ") || "—"), el("div", {}, "Вложений"), el("div", {}, String(ex.attachments)),
+      el("div", {}, "Доказательства"), el("div", {}, ({attached: "приложены (вложений: " + ex.attachments + ")", claimed_only: "только заявлены в тексте, вложений нет", stated_absent: "в тексте сказано, что их нет", asked_about: "игрок спрашивает, какие нужны"}[ex.evidence_status] || "нет") + "; содержимое не проверено"), el("div", {}, "Сервер"), el("div", {}, ex.server || "—"))),
+    el("div", {}, el("h2", {}, `Черновик ответа (${r.draft_reply.lang}) — отредактируйте при необходимости`), ta,
+      el("div", {className: "small muted"}, "Цитируется: " + (r.draft_reply.cited.join(", ") || "ничего") + ((r.draft_reply.terms || []).length ? " · термины: " + r.draft_reply.terms.join(", ") : "")), el("div", {className: "row", style: "margin-top:8px"}, ...buttons), msg)
+  );
+}
+
+const DIR = {quoted_or_reported: "чужие слова (цитата или описание)", author_to_addressee: "автор → собеседнику", author_expressive: "автор, без адресата", accused_reply: "комментарий обвиняемого"};
+const LANGNAME = {"es/pt": "испанский/португальский", ru: "русский", kk: "казахский", uz: "узбекский", en: "английский", es: "испанский", pt: "португальский", lat: "русский латиницей", und: "не определён"};
+function highlighted(text, findings) {
+  const out = []; let pos = 0;
+  for (const f of [...findings].sort((a, b) => a.start - b.start)) {
+    if (f.start < pos) continue;
+    out.push(text.slice(pos, f.start));
+    out.push(el("mark", {className: "tox s" + f.severity, title: `${f.type_ru} · ${DIR[f.direction] || f.direction} · уверенность ${f.confidence}${f.obfuscated ? " · замаскировано" : ""}`}, text.slice(f.start, f.end)));
+    pos = f.end;
+  }
+  out.push(text.slice(pos));
+  return out;
+}
+function moderationBlock(m) {
+  const sum = m.summary;
+  const head = sum.has_abuse
+    ? el("div", {className: "row"}, el("span", {className: "badge"}, "серьёзность: " + sum.max_severity + " из 3"), el("span", {className: "badge"}, "тон: " + ({neutral: "нейтральный", hostile: "враждебный", joking: "похоже на шутку"}[sum.tone] || sum.tone)),
+        el("span", {className: "badge"}, "уверенность: " + sum.confidence), sum.real_life_threat ? el("span", {className: "badge"}, "угроза вне игры") : "",
+        sum.mixed_language_abuse ? el("span", {className: "badge"}, "мат на нескольких языках") : "")
+    : el("div", {className: "muted small"}, "Оскорблений, угроз и мата не найдено.");
+  const msgs = m.messages.map(x => el("div", {className: "rule"},
+    el("div", {className: "muted small"}, x.role + (x.languages.mixed ? " · смешанные языки" : " · язык: " + (LANGNAME[x.languages.primary] || x.languages.primary))),
+    el("div", {className: "quote", style: "margin:4px 0"}, ...highlighted(x.text, x.findings)),
+    el("div", {className: "segs"}, ...x.languages.segments.map(sg => el("span", {className: "seg"}, el("b", {}, sg.lang), sg.text))),
+    x.findings.length ? el("ul", {style: "margin:6px 0 0 18px;padding:0"}, ...x.findings.map(f => el("li", {className: "small"},
+      el("b", {}, f.text), ` — ${f.type_ru}; язык: ${LANGNAME[f.lang] || f.lang}${f.form ? " (" + f.form + ")" : ""}; ${DIR[f.direction] || f.direction}; серьёзность ${f.severity}; уверенность ${f.confidence}` + (f.obfuscated ? "; замаскировано" : "") + (f.real_life === true ? "; вне игры" : f.real_life === false ? "; игровой контекст" : "")))) : ""));
+  return el("div", {}, head, ...(sum.explanation || []).map(e => el("div", {className: "small muted"}, "• " + e)), ...msgs);
+}
+
+function bars(obj, opts = {}) {
+  const entries = Object.entries(obj || {}).filter(([, v]) => v > 0).sort((a, b) => opts.order ? opts.order.indexOf(a[0]) - opts.order.indexOf(b[0]) : b[1] - a[1]);
+  if (!entries.length) return el("div", {className: "muted small"}, "Нет данных");
+  const max = Math.max(...entries.map(([, v]) => v)), total = entries.reduce((s, [, v]) => s + v, 0);
+  return el("div", {className: "bars", role: "table"}, ...entries.flatMap(([k, v]) => {
+    const label = opts.names?.[k] ? `${k} — ${opts.names[k]}` : k;
+    const fill = el("div", {className: "fill", title: `${label}: ${v} (${(100 * v / total).toFixed(1)}%)`});
+    fill.style.width = (100 * v / max) + "%";
+    if (opts.color) fill.style.background = opts.color(k);
+    return [el("div", {title: label}, opts.short ? k : label), el("div", {className: "track"}, fill), el("div", {className: "num"}, String(v))];
+  }));
+}
+const tile = (v, l, alert) => el("div", {className: "tile" + (alert ? " alert" : "")}, el("div", {className: "v"}, String(v)), el("div", {className: "l"}, l));
+const VERD = {approved: "одобрена", rejected: "нет нарушения", need_evidence: "нужны доказательства", invalid_format: "неверный формат", duplicate: "дубликат",
+  already_punished: "уже наказан", appeal_approved: "апелляция одобрена", appeal_rejected: "апелляция отклонена", closed: "закрыта", other: "шаблон не распознан", none: "нет вердикта"};
+
+async function dashboard() {
+  current = null; loadQueue();
+  $("#detail").replaceChildren(el("div", {}, el("span", {className: "spinner"}), " загрузка дашборда…"));
+  try {
+    const d = await api("/api/insights"), q = d.queue, h = d.history;
+    let fb = null; try { fb = await api("/api/feedback/summary"); } catch {}
+    const crit = q.open_critical || [];
+    const alerts = crit.length ? el("ul", {className: "alerts", style: "list-style:none;margin:0;padding:0"}, ...crit.map(t => {
+      const li = el("li", {tabIndex: 0}, el("span", {className: "pri p0"}, "p0"), " ", el("b", {}, t.category), " ", el("span", {className: "muted"}, t.preview));
+      li.onclick = () => open(t.id); li.onkeydown = e => { if (e.key === "Enter") open(t.id); }; return li; }))
+      : el("div", {className: "muted small"}, "Открытых критичных обращений нет.");
+    const parts = [
+      el("h2", {}, "Нагрузка поддержки (очередь)"),
+      el("div", {className: "tiles"}, tile(q.total, "обращений в очереди"), tile(q.needs_human, "нужен человек"), tile(crit.length, "критичных p0 открыто", crit.length > 0),
+        tile(q.spam_or_duplicate, "спам / дубликаты"), tile(q.low_confidence, "низкая уверенность (<0.5)"), tile(q.edits, "правок администраторов")),
+      el("div", {}, el("h2", {}, "Критичные обращения (p0): платежи, взлом, угрозы"), alerts),
+      el("div", {}, el("h2", {}, "Качество по решениям администраторов (живая разметка)"),
+        fb && fb.with_prediction ? el("div", {className: "tiles"}, tile(fb.with_prediction, "решений с прогнозом"),
+          tile((100 * fb.category_accuracy).toFixed(0) + "%", "категория совпала"), tile(fb.priority_macro_f1 ?? "—", "macro-F1 приоритета"),
+          tile(fb.draft_rating_mean ?? "—", "средняя оценка черновика"))
+          : el("div", {className: "muted small"}, "Пока нет решений. Админ подтверждает или исправляет категорию в карточке тикета (или игра присылает их в POST /api/feedback): так считается реальная точность.")),
+      el("div", {className: "grid2"},
+        el("div", {}, el("h2", {}, "Приоритеты"), bars(q.by_priority, {order: ["p0", "p1", "p2", "p3"], short: true, color: k => `var(--${k})`})),
+        el("div", {}, el("h2", {}, "Языки"), bars(q.by_lang, {short: true}))),
+      el("div", {}, el("h2", {}, "Категории"), bars(q.by_category, {names: CATNAME})),
+    ];
+    if (h) {
+      const v = h.verdict_by_predicted_category, cols = ["approved", "need_evidence", "rejected", "appeal_rejected", "appeal_approved", "duplicate", "other"];
+      parts.push(
+        el("h2", {style: "margin-top:12px"}, `История (обучающая выборка: ${h.tickets.total} обращений, только агрегаты)`),
+        el("div", {className: "notice small"}, "Решения администраторов в прошлом — это закономерности, а не эталон: они не используются для решения по конкретному обращению."),
+        el("div", {}, el("h2", {}, `Чем заканчивались жалобы по категориям (выборка ${v.sample}, ${v.classifier})`),
+          el("div", {className: "scroll"}, el("table", {className: "t"},
+            el("thead", {}, el("tr", {}, el("th", {}, "категория"), el("th", {}, "n"), ...cols.map(c => el("th", {}, VERD[c])))),
+            el("tbody", {}, ...Object.entries(v.rows).map(([c, r]) => el("tr", {}, el("td", {title: CATNAME[c] || c}, c), el("td", {}, String(r.n)),
+              ...cols.map(k => el("td", {}, r[k] ? (100 * r[k]).toFixed(0) + "%" : "—")))))))),
+        el("div", {className: "grid2"},
+          el("div", {}, el("h2", {}, "Вердикты по жалобам"), bars(Object.fromEntries(Object.entries(h.complaint_verdicts).map(([k, n]) => [VERD[k] || k, n])), {short: true})),
+          el("div", {}, el("h2", {}, "Частые наказания"), bars(Object.fromEntries(h.top_punishments), {short: true}))),
+        el("div", {className: "grid2"},
+          el("div", {}, el("h2", {}, "Языки (метка датасета)"), bars(h.dataset_lang, {short: true})),
+          el("div", {}, el("h2", {}, "Повторные обращения"), el("div", {className: "tiles"},
+            tile((100 * h.repeat_behaviour.reporters_with_2plus_complaints_share).toFixed(0) + "%", "авторов подают 2+ жалобы"),
+            tile((100 * h.repeat_behaviour.complaints_about_accused_with_3plus).toFixed(0) + "%", "жалоб — на игроков с 3+ жалобами")),
+            el("div", {className: "muted small", style: "margin-top:4px"}, h.repeat_behaviour.note))));
+    } else parts.push(el("div", {className: "muted small"}, "Исторические агрегаты не найдены: выполните make insights."));
+    $("#detail").replaceChildren(...parts);
+  } catch (e) { $("#detail").replaceChildren(el("div", {className: "notice err"}, "Не удалось загрузить дашборд: " + e.message)); }
+}
+$("#dashbtn").onclick = dashboard;
+$("#modbtn").onclick = () => {
+  current = null;
+  const ta = el("textarea", {placeholder: "Вставьте сообщение игрока (выдуманное для демо). Смешанные языки, маскировка «с.у.к.а», цитаты и шутки поддерживаются.", style: "min-height:110px"});
+  const out = el("div", {}), go = el("button", {className: "primary", textContent: "Проанализировать"});
+  go.onclick = async () => {
+    go.disabled = true; out.replaceChildren(el("span", {className: "spinner"}), " анализ…");
+    try { out.replaceChildren(moderationBlock(await api("/api/moderation/analyze", {text: ta.value}))); }
+    catch (e) { out.replaceChildren(el("div", {className: "notice err"}, "Ошибка: " + e.message)); } finally { go.disabled = false; }
+  };
+  $("#detail").replaceChildren(el("h2", {}, "Модерация: языки по сегментам и оскорбления"),
+    el("div", {className: "muted small"}, "Помощник для администратора: подсвечивает фрагменты и объясняет, кто их сказал. Решение о нарушении принимает человек."), ta, go, out);
+};
+
+$("#seed").onclick = async () => { try { await api("/api/demo/seed", {}); } catch (e) { alert(e.message); } loadQueue(); loadMeta(); if (current === null) dashboard(); };
+$("#newbtn").onclick = () => {
+  const ta = el("textarea", {placeholder: "Текст обращения игрока (выдуманный; реальные данные не вставляйте)", style: "min-height:110px"});
+  const kind = el("select", {}, el("option", {value: "complaint"}, "Жалоба (complaint)"), el("option", {value: "report"}, "Репорт (report)"));
+  const att = el("input", {type: "number", min: 0, value: 0, ariaLabel: "Число вложений"});
+  const rep = el("input", {type: "text", placeholder: "ID автора (необязательно)", ariaLabel: "ID автора обращения"});
+  const tgt = el("input", {type: "text", placeholder: "Ник обвиняемого (необязательно)", ariaLabel: "Ник обвиняемого"});
+  const out = el("div", {});
+  const go = el("button", {className: "primary", textContent: "Обработать и добавить в очередь"});
+  go.onclick = async () => {
+    go.disabled = true; out.replaceChildren(el("span", {className: "spinner"}), " обработка…");
+    // no author id -> no duplicate check: nobody is given a shared author, because that would merge strangers' tickets
+    const body = {kind: kind.value, messages: [{role: "player", text: ta.value, attachments: +att.value || 0}], source: "admin-ui"};
+    if (rep.value.trim()) body.reporter_id = rep.value.trim();
+    if (tgt.value.trim()) body.reported_nick = tgt.value.trim();
+    try { const res = await api("/api/tickets", body); out.textContent = ""; loadQueue(); loadMeta(); open(res.id); }
+    catch (e) { out.replaceChildren(el("div", {className: "notice err"}, "Ошибка: " + e.message)); } finally { go.disabled = false; }
+  };
+  $("#detail").replaceChildren(el("h2", {}, "Новое обращение (проверка работы сервиса)"), kind, ta, el("label", {}, "Вложений (только число): ", att), rep, tgt,
+    el("div", {className: "muted small"}, "Дубликаты определяются только если указаны ID автора и ник обвиняемого (время берётся по моменту приёма): без них сравнение недостоверно, поэтому оно не выполняется."), go, out);
+};
+$("#tplbtn").onclick = async () => {
+  $("#detail").replaceChildren(el("div", {}, el("span", {className: "spinner"}), " считаю кластеры…"));
+  try {
+    const s = await api("/api/template-suggestions?min_size=2");
+    $("#detail").replaceChildren(el("h2", {}, "Предложенные шаблоны (кластеры похожих обращений, только для просмотра человеком)"),
+      ...(s.length ? s.map(x => el("div", {className: "rule"}, el("div", {}, el("b", {}, x.category), ` · обращений: ${x.size} · источник: ${x.source === "admin edits" ? "правки администраторов (" + x.edit_support + ")" : "автоматический черновик"}`),
+        el("div", {className: "muted small"}, "Примеры: " + x.examples.join(" | ")), el("div", {className: "quote"}, x.suggested_template))) : [el("div", {className: "muted"}, "Пока нет кластеров из 2+ похожих обращений. Загрузите демо-данные или добавьте обращения.")]));
+  } catch (e) { $("#detail").replaceChildren(el("div", {className: "notice err"}, "Ошибка: " + e.message)); }
+};
+for (const id of ["#f-category", "#f-priority", "#f-lang", "#f-human", "#f-status"]) $(id).onchange = loadQueue;
+let tm; $("#f-q").oninput = () => { clearTimeout(tm); tm = setTimeout(loadQueue, 250); };
+loadMeta(); dashboard();
+</script>
+</body>
+</html>

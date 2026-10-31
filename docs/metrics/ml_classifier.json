@@ -1,0 +1,340 @@
+{
+  "note": "silver labels from administrators' replies (TRAIN only); NOT human annotation. Agreement with silver labels is not the hidden-test accuracy, and silver labels exist only for complaints with a rule code or an appeal verdict.",
+  "features": "TF-IDF char_wb 2-5 (200k) + word 1-2; LogisticRegression C=4, class_weight=balanced",
+  "blend": "w * P_model + (1 - w) * normalised lexicon scores; complaint.invalid and safety flags stay rule-based",
+  "train_holdout_by_reporter": {
+    "n": 6112,
+    "label_distribution": {
+      "complaint.insult": 3602,
+      "complaint.admin": 1653,
+      "complaint.dm": 479,
+      "complaint.other": 155,
+      "complaint.cheat": 127,
+      "complaint.scam": 90,
+      "complaint.rmt_ads": 6
+    },
+    "lexicon": {
+      "agreement": 0.8581,
+      "macro_f1": 0.5949
+    },
+    "model_alone": {
+      "agreement": 0.9097,
+      "macro_f1": 0.7389
+    },
+    "hybrid_by_weight": {
+      "0.0": {
+        "agreement": 0.8681,
+        "macro_f1": 0.6086
+      },
+      "0.3": {
+        "agreement": 0.8974,
+        "macro_f1": 0.6457
+      },
+      "0.5": {
+        "agreement": 0.9038,
+        "macro_f1": 0.6528
+      },
+      "0.6": {
+        "agreement": 0.9154,
+        "macro_f1": 0.6606
+      },
+      "0.7": {
+        "agreement": 0.9156,
+        "macro_f1": 0.6678
+      },
+      "0.8": {
+        "agreement": 0.913,
+        "macro_f1": 0.6632
+      },
+      "1.0": {
+        "agreement": 0.9062,
+        "macro_f1": 0.6465
+      }
+    },
+    "hybrid": {
+      "macro_f1": 0.6606,
+      "macro_f1_gold_classes_only": 0.755,
+      "classes_only_predicted": [
+        "complaint.invalid"
+      ],
+      "classes_only_in_gold": [],
+      "per_class": {
+        "complaint.admin": {
+          "precision": 0.918,
+          "recall": 0.93,
+          "f1": 0.924,
+          "support": 1653,
+          "predicted": 1674
+        },
+        "complaint.cheat": {
+          "precision": 0.685,
+          "recall": 0.685,
+          "f1": 0.685,
+          "support": 127,
+          "predicted": 127
+        },
+        "complaint.dm": {
+          "precision": 0.83,
+          "recall": 0.906,
+          "f1": 0.866,
+          "support": 479,
+          "predicted": 523
+        },
+        "complaint.insult": {
+          "precision": 0.972,
+          "recall": 0.935,
+          "f1": 0.953,
+          "support": 3602,
+          "predicted": 3465
+        },
+        "complaint.invalid": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "predicted": 21
+        },
+        "complaint.other": {
+          "precision": 0.413,
+          "recall": 0.523,
+          "f1": 0.462,
+          "support": 155,
+          "predicted": 196
+        },
+        "complaint.rmt_ads": {
+          "precision": 0.5,
+          "recall": 0.5,
+          "f1": 0.5,
+          "support": 6,
+          "predicted": 6
+        },
+        "complaint.scam": {
+          "precision": 0.85,
+          "recall": 0.944,
+          "f1": 0.895,
+          "support": 90,
+          "predicted": 100
+        }
+      },
+      "agreement": 0.9154,
+      "weight": 0.6
+    },
+    "hybrid_top_disagreements": [
+      [
+        "complaint.insult",
+        "complaint.other",
+        99
+      ],
+      [
+        "complaint.insult",
+        "complaint.admin",
+        77
+      ],
+      [
+        "complaint.other",
+        "complaint.insult",
+        53
+      ],
+      [
+        "complaint.admin",
+        "complaint.dm",
+        43
+      ],
+      [
+        "complaint.insult",
+        "complaint.dm",
+        35
+      ],
+      [
+        "complaint.cheat",
+        "complaint.admin",
+        24
+      ],
+      [
+        "complaint.admin",
+        "complaint.insult",
+        24
+      ],
+      [
+        "complaint.admin",
+        "complaint.cheat",
+        20
+      ]
+    ]
+  },
+  "best_weight_on_holdout": 0.7,
+  "weight_in_use": 0.6,
+  "valid_silver_confirmation": {
+    "n": 350,
+    "label_distribution": {
+      "complaint.insult": 211,
+      "complaint.admin": 89,
+      "complaint.dm": 31,
+      "complaint.cheat": 7,
+      "complaint.scam": 6,
+      "complaint.other": 5,
+      "complaint.rmt_ads": 1
+    },
+    "lexicon": {
+      "agreement": 0.8457,
+      "macro_f1": 0.6639
+    },
+    "model_alone": {
+      "agreement": 0.9,
+      "macro_f1": 0.8323
+    },
+    "hybrid_by_weight": {
+      "0.0": {
+        "agreement": 0.8686,
+        "macro_f1": 0.6855
+      },
+      "0.3": {
+        "agreement": 0.8857,
+        "macro_f1": 0.7224
+      },
+      "0.5": {
+        "agreement": 0.8857,
+        "macro_f1": 0.7162
+      },
+      "0.6": {
+        "agreement": 0.9,
+        "macro_f1": 0.7436
+      },
+      "0.7": {
+        "agreement": 0.9,
+        "macro_f1": 0.7375
+      },
+      "0.8": {
+        "agreement": 0.8971,
+        "macro_f1": 0.7304
+      },
+      "1.0": {
+        "agreement": 0.8943,
+        "macro_f1": 0.7294
+      }
+    },
+    "hybrid": {
+      "macro_f1": 0.7436,
+      "macro_f1_gold_classes_only": 0.8499,
+      "classes_only_predicted": [
+        "complaint.invalid"
+      ],
+      "classes_only_in_gold": [],
+      "per_class": {
+        "complaint.admin": {
+          "precision": 0.857,
+          "recall": 0.876,
+          "f1": 0.867,
+          "support": 89,
+          "predicted": 91
+        },
+        "complaint.cheat": {
+          "precision": 0.778,
+          "recall": 1.0,
+          "f1": 0.875,
+          "support": 7,
+          "predicted": 9
+        },
+        "complaint.dm": {
+          "precision": 0.875,
+          "recall": 0.903,
+          "f1": 0.889,
+          "support": 31,
+          "predicted": 32
+        },
+        "complaint.insult": {
+          "precision": 0.98,
+          "recall": 0.91,
+          "f1": 0.943,
+          "support": 211,
+          "predicted": 196
+        },
+        "complaint.invalid": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "predicted": 4
+        },
+        "complaint.other": {
+          "precision": 0.273,
+          "recall": 0.6,
+          "f1": 0.375,
+          "support": 5,
+          "predicted": 11
+        },
+        "complaint.rmt_ads": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1,
+          "predicted": 1
+        },
+        "complaint.scam": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 6,
+          "predicted": 6
+        }
+      },
+      "agreement": 0.9,
+      "weight": 0.6
+    },
+    "hybrid_top_disagreements": [
+      [
+        "complaint.insult",
+        "complaint.admin",
+        10
+      ],
+      [
+        "complaint.insult",
+        "complaint.other",
+        8
+      ],
+      [
+        "complaint.admin",
+        "complaint.dm",
+        4
+      ],
+      [
+        "complaint.dm",
+        "complaint.admin",
+        3
+      ],
+      [
+        "complaint.admin",
+        "complaint.invalid",
+        3
+      ],
+      [
+        "complaint.admin",
+        "complaint.insult",
+        3
+      ],
+      [
+        "complaint.other",
+        "complaint.insult",
+        1
+      ],
+      [
+        "complaint.other",
+        "complaint.invalid",
+        1
+      ]
+    ]
+  },
+  "admin_decisions_used": 0,
+  "final_model": {
+    "n_train": 29516,
+    "classes": [
+      "complaint.admin",
+      "complaint.cheat",
+      "complaint.dm",
+      "complaint.insult",
+      "complaint.other",
+      "complaint.rmt_ads",
+      "complaint.scam"
+    ]
+  }
+}

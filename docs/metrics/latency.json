@@ -1,0 +1,18 @@
+{
+  "requests": 1000,
+  "sequential": true,
+  "client": "httpx keep-alive on 127.0.0.1",
+  "p50_ms": 19.98,
+  "p95_ms": 34.46,
+  "p99_ms": 50.55,
+  "max_ms": 107.59,
+  "service_mode": "template (demo: no LLM key, no model calls)",
+  "dedup_history_in_sqlite": true,
+  "llm_calls": 0,
+  "machine": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.0",
+    "cpus": 12
+  },
+  "note": "template mode: no network model call is included. LLM mode adds one model call per ticket (see docs/REPORT.md)."
+}

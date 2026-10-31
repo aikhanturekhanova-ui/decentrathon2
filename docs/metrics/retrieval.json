@@ -1,0 +1,23 @@
+{
+  "note": "silver ground truth = rule named by the admin reply; weak; compares methods",
+  "tickets_with_named_rule": 5169,
+  "recall_at_1_3_5": {
+    "bm25_expanded": [
+      0.657,
+      0.741,
+      0.749
+    ],
+    "bm25_plain": [
+      0.029,
+      0.058,
+      0.175
+    ]
+  },
+  "system_selection": {
+    "cited_something": 4895,
+    "cited_equals_admin_rule": 4466,
+    "precision_when_citing": 0.912,
+    "cited_nothing": 274,
+    "coverage": 0.947
+  }
+}

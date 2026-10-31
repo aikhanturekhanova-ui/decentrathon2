@@ -1,0 +1,316 @@
+{
+  "note": "silver = derived from administrator reply; NOT human labels; agreement, not accuracy",
+  "classifier": "hybrid: lexicon + learned model",
+  "caveat": "with the learned model loaded, the TRAIN sample is IN-SAMPLE for the model (it was fitted on train silver labels), so its agreement is optimistic; only the VALID numbers are out-of-sample",
+  "valid": {
+    "tickets": 1000,
+    "silver_labelled": 350,
+    "silver_agreement_category": 0.8971,
+    "silver_macro_f1_category": 0.738,
+    "agreement_by_detected_lang": {
+      "lat": {
+        "n": 13,
+        "agree": 1.0
+      },
+      "ru": {
+        "n": 296,
+        "agree": 0.902
+      },
+      "uz": {
+        "n": 25,
+        "agree": 0.92
+      },
+      "kk": {
+        "n": 4,
+        "agree": 0.25
+      },
+      "und": {
+        "n": 12,
+        "agree": 0.833
+      }
+    },
+    "top_disagreements(silver->ours)": [
+      [
+        "complaint.insult",
+        "complaint.admin",
+        9
+      ],
+      [
+        "complaint.insult",
+        "complaint.other",
+        9
+      ],
+      [
+        "complaint.admin",
+        "complaint.dm",
+        5
+      ],
+      [
+        "complaint.dm",
+        "complaint.admin",
+        3
+      ],
+      [
+        "complaint.admin",
+        "complaint.invalid",
+        3
+      ],
+      [
+        "complaint.admin",
+        "complaint.insult",
+        2
+      ],
+      [
+        "complaint.other",
+        "complaint.insult",
+        1
+      ],
+      [
+        "complaint.other",
+        "complaint.invalid",
+        1
+      ]
+    ],
+    "cited_rule_equals_admin_rule_when_both_exist": {
+      "checked": 214,
+      "equal": 209
+    },
+    "needs_human_share": 0.926,
+    "category_distribution": {
+      "complaint.insult": 305,
+      "complaint.admin": 243,
+      "complaint.dm": 167,
+      "report.offtopic": 63,
+      "report.question": 60,
+      "report.complaint": 35,
+      "complaint.other": 34,
+      "complaint.cheat": 30,
+      "complaint.scam": 26,
+      "report.help": 25,
+      "complaint.invalid": 11,
+      "complaint.rmt_ads": 1
+    },
+    "priority_distribution": {
+      "p2": 824,
+      "p3": 132,
+      "p1": 44
+    },
+    "lang_distribution": {
+      "ru": 769,
+      "uz": 130,
+      "und": 45,
+      "kk": 33,
+      "lat": 19,
+      "en": 4
+    },
+    "draft_lang_distribution": {
+      "ru": 832,
+      "uz": 131,
+      "kk": 33,
+      "en": 4
+    },
+    "with_citation_share": 0.666,
+    "with_term_share": 0.149,
+    "with_citation_or_term_share": 0.8,
+    "complaint_dm_grounded_share": 0.8084,
+    "term_counts": {
+      "DM": 103,
+      "DB": 17,
+      "NonRP": 12,
+      "TK": 11,
+      "SK": 4,
+      "MG": 1,
+      "RK": 1
+    },
+    "cited_rule_counts": {
+      "2.1": 302,
+      "3.4": 245,
+      "5.2": 33,
+      "4.1": 26,
+      "GZ 1.1": 15,
+      "GZ 1.2": 9,
+      "ЖБ 1.3.4": 6,
+      "2.2": 6,
+      "5.3": 6,
+      "ЖБ 1.1.2": 5,
+      "2.6": 5,
+      "3.1": 4,
+      "1.6": 3,
+      "ЖБ 1.2.9": 2,
+      "2.4": 1,
+      "3.3": 1,
+      "4.4": 1,
+      "2.5": 1
+    },
+    "guard_failures_on_final_drafts": 0,
+    "template_fallbacks_due_to_guard": 0
+  },
+  "train_sample_20000": {
+    "tickets": 20000,
+    "silver_labelled": 5014,
+    "silver_agreement_category": 0.9545,
+    "silver_macro_f1_category": 0.7949,
+    "agreement_by_detected_lang": {
+      "ru": {
+        "n": 4604,
+        "agree": 0.956
+      },
+      "lat": {
+        "n": 125,
+        "agree": 0.992
+      },
+      "und": {
+        "n": 189,
+        "agree": 0.884
+      },
+      "en": {
+        "n": 5,
+        "agree": 1.0
+      },
+      "uz": {
+        "n": 73,
+        "agree": 1.0
+      },
+      "kk": {
+        "n": 16,
+        "agree": 0.812
+      },
+      "pt": {
+        "n": 1,
+        "agree": 1.0
+      },
+      "es": {
+        "n": 1,
+        "agree": 1.0
+      }
+    },
+    "top_disagreements(silver->ours)": [
+      [
+        "complaint.insult",
+        "complaint.other",
+        72
+      ],
+      [
+        "complaint.insult",
+        "complaint.admin",
+        32
+      ],
+      [
+        "complaint.insult",
+        "complaint.dm",
+        18
+      ],
+      [
+        "complaint.admin",
+        "complaint.invalid",
+        14
+      ],
+      [
+        "complaint.admin",
+        "complaint.dm",
+        13
+      ],
+      [
+        "complaint.other",
+        "complaint.insult",
+        13
+      ],
+      [
+        "complaint.dm",
+        "complaint.admin",
+        9
+      ],
+      [
+        "complaint.insult",
+        "complaint.cheat",
+        9
+      ]
+    ],
+    "cited_rule_equals_admin_rule_when_both_exist": {
+      "checked": 3225,
+      "equal": 3171
+    },
+    "needs_human_share": 0.8621,
+    "category_distribution": {
+      "complaint.insult": 4346,
+      "complaint.admin": 3588,
+      "report.question": 3051,
+      "report.offtopic": 2631,
+      "complaint.dm": 2108,
+      "report.complaint": 1716,
+      "report.help": 1106,
+      "complaint.other": 442,
+      "complaint.cheat": 430,
+      "complaint.scam": 424,
+      "complaint.invalid": 100,
+      "complaint.rmt_ads": 29,
+      "report.payment": 20,
+      "report.account": 9
+    },
+    "priority_distribution": {
+      "p2": 13635,
+      "p3": 5681,
+      "p1": 639,
+      "p0": 45
+    },
+    "lang_distribution": {
+      "ru": 18076,
+      "und": 1163,
+      "uz": 329,
+      "lat": 298,
+      "kk": 75,
+      "en": 54,
+      "pt": 3,
+      "es": 2
+    },
+    "draft_lang_distribution": {
+      "ru": 19487,
+      "uz": 376,
+      "kk": 78,
+      "en": 54,
+      "pt": 3,
+      "es": 2
+    },
+    "with_citation_share": 0.5077,
+    "with_term_share": 0.1347,
+    "with_citation_or_term_share": 0.6308,
+    "complaint_dm_grounded_share": 0.7955,
+    "term_counts": {
+      "DM": 1695,
+      "DB": 486,
+      "NonRP": 264,
+      "SK": 125,
+      "TK": 98,
+      "MG": 16,
+      "RK": 8,
+      "PG": 2
+    },
+    "cited_rule_counts": {
+      "2.1": 4462,
+      "3.4": 3656,
+      "5.2": 655,
+      "4.1": 461,
+      "GZ 1.1": 169,
+      "3.1": 153,
+      "GZ 1.2": 132,
+      "2.2": 99,
+      "5.3": 88,
+      "ЖБ 1.2.9": 63,
+      "ЖБ 1.3.4": 62,
+      "2.6": 53,
+      "1.6": 53,
+      "ЖБ 1.1.2": 37,
+      "2.3": 21,
+      "2.4": 17,
+      "2.5": 15,
+      "4.4": 10,
+      "1.4": 9,
+      "3.3": 8,
+      "5.4": 6,
+      "4.2": 4,
+      "5.9": 3
+    },
+    "guard_failures_on_final_drafts": 0,
+    "template_fallbacks_due_to_guard": 0
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "note": "behaviour counters on real tickets (aggregates only); NOT accuracy; the mode is template (no model was called)",
+  "detection_on_expectation_set": {
+    "rows": 81,
+    "positives": 57,
+    "negatives": 24,
+    "recall_by_topic": {
+      "account": "35/35",
+      "appeal": "5/5",
+      "payment": "14/14",
+      "threat": "3/3"
+    },
+    "false_alarms_on_negatives": 0,
+    "positives_escalated_with_right_priority": "57/57",
+    "caveat": "authors' own list; says nothing about phrasings nobody wrote down; real tickets contain almost no such cases"
+  },
+  "valid": {
+    "tickets": 1000,
+    "escalation_share": 0.926,
+    "answers_with_a_source_share": 0.8,
+    "with_citation_share": 0.666,
+    "spam_or_duplicate_share": 0.002,
+    "possible_duplicate_suspected": 1,
+    "technical_validity_of_citations": {
+      "cited_total": 671,
+      "valid": 671,
+      "share": 1.0
+    },
+    "place_bound_citations": {
+      "total": 24,
+      "with_place_fact_in_text": 24
+    },
+    "fallback_share": 0.0,
+    "guard_rejected_final_drafts": 0,
+    "drafts_claiming_a_transfer": 0,
+    "taxonomy_adjusted": 0,
+    "policy_compliance_for_recognised_sensitive_signals": {
+      "tickets_with_sensitive_topic": 157,
+      "without_human": 0,
+      "p0_signal_not_p0": 0,
+      "refused_as_invalid": 0
+    },
+    "flag_counts": {
+      "appeal": 157,
+      "claim_only": 58,
+      "injection": 2
+    },
+    "by_language_group": {
+      "kk": {
+        "n": 33,
+        "escalation_share": 0.9697,
+        "substantive_share": 0.3333,
+        "with_citation_share": 0.2727,
+        "draft_in_detected_language_share": 1.0
+      },
+      "other": {
+        "n": 837,
+        "escalation_share": 0.9283,
+        "substantive_share": 0.8136,
+        "with_citation_share": 0.6882,
+        "draft_in_detected_language_share": 0.9235
+      },
+      "uz": {
+        "n": 130,
+        "escalation_share": 0.9,
+        "substantive_share": 0.8308,
+        "with_citation_share": 0.6231,
+        "draft_in_detected_language_share": 1.0
+      }
+    }
+  },
+  "train_sample_20000": {
+    "tickets": 20000,
+    "escalation_share": 0.8621,
+    "answers_with_a_source_share": 0.6309,
+    "with_citation_share": 0.508,
+    "spam_or_duplicate_share": 0.0112,
+    "possible_duplicate_suspected": 144,
+    "technical_validity_of_citations": {
+      "cited_total": 10284,
+      "valid": 10284,
+      "share": 1.0
+    },
+    "place_bound_citations": {
+      "total": 299,
+      "with_place_fact_in_text": 299
+    },
+    "fallback_share": 0.0,
+    "guard_rejected_final_drafts": 0,
+    "drafts_claiming_a_transfer": 0,
+    "taxonomy_adjusted": 0,
+    "policy_compliance_for_recognised_sensitive_signals": {
+      "tickets_with_sensitive_topic": 2540,
+      "without_human": 0,
+      "p0_signal_not_p0": 0,
+      "refused_as_invalid": 0
+    },
+    "flag_counts": {
+      "appeal": 2526,
+      "claim_only": 814,
+      "threat_outside_game": 7,
+      "access": 3,
+      "injection": 3,
+      "payment": 3,
+      "hack": 2,
+      "mass_bug": 2
+    },
+    "by_language_group": {
+      "kk": {
+        "n": 75,
+        "escalation_share": 0.9733,
+        "substantive_share": 0.4933,
+        "with_citation_share": 0.4267,
+        "draft_in_detected_language_share": 1.0
+      },
+      "other": {
+        "n": 19596,
+        "escalation_share": 0.8599,
+        "substantive_share": 0.6275,
+        "with_citation_share": 0.5048,
+        "draft_in_detected_language_share": 0.9254
+      },
+      "uz": {
+        "n": 329,
+        "escalation_share": 0.9666,
+        "substantive_share": 0.8663,
+        "with_citation_share": 0.7173,
+        "draft_in_detected_language_share": 1.0
+      }
+    }
+  }
+}

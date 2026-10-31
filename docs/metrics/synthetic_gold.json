@@ -1,0 +1,6 @@
+{
+  "n": 65,
+  "category_accuracy": 1.0,
+  "priority_macro_f1": 1.0,
+  "caveat": "authors' own artificial examples; regression guard, not an accuracy estimate"
+}

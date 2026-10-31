@@ -1,0 +1,65 @@
+{"kind":"complaint","text":"оск родни","att":1,"expect":{"category":"complaint.insult","priority":"p2","lang":"ru"}}
+{"kind":"complaint","text":"оскорбил меня в чате","att":1,"expect":{"category":"complaint.insult","priority":"p2","lang":"ru"}}
+{"kind":"complaint","text":"Arman_Petrov оскорблял меня и мою семью в чате, скрины есть, 2.1 ОП","att":2,"expect":{"category":"complaint.insult","priority":"p2","lang":"ru"}}
+{"kind":"complaint","text":"расизм в локальном чате","att":1,"expect":{"category":"complaint.insult","priority":"p2","lang":"ru"}}
+{"kind":"complaint","text":"osk rodni","att":1,"expect":{"category":"complaint.insult","priority":"p2","lang":"lat"}}
+{"kind":"complaint","text":"он назвал меня уебком и упомянул маму","att":1,"expect":{"category":"complaint.insult","priority":"p2","lang":"ru"}}
+{"kind":"complaint","text":"угрожает найти меня в реальной жизни и приехать домой","att":1,"expect":{"category":"complaint.insult","priority":"p0","lang":"ru"}}
+{"kind":"complaint","text":"Jasur_Karimov meni haqorat qildi, skrinshot bor","att":2,"expect":{"category":"complaint.insult","priority":"p2","lang":"uz"}}
+{"kind":"complaint","text":"u meni onam haqida sokdi","att":1,"expect":{"category":"complaint.insult","priority":"p2","lang":"uz"}}
+{"kind":"complaint","text":"Қайрат мені қорлады","att":1,"server_lang":"kk","expect":{"category":"complaint.insult","priority":"p2","lang":"kk"}}
+{"kind":"complaint","text":"Ќайрат мені ќорлады","att":1,"server_lang":"kk","expect":{"category":"complaint.insult","priority":"p2","lang":"kk"}}
+{"kind":"complaint","text":"he insulted me and my family in chat","att":1,"expect":{"category":"complaint.insult","priority":"p2","lang":"en"}}
+{"kind":"complaint","text":"летает по воздуху","att":1,"expect":{"category":"complaint.cheat","priority":"p1","lang":"ru"}}
+{"kind":"complaint","text":"стреляет через стены, аимбот","att":1,"expect":{"category":"complaint.cheat","priority":"p1","lang":"ru"}}
+{"kind":"complaint","text":"Nurlan_Kim использует софт","att":1,"expect":{"category":"complaint.cheat","priority":"p1","lang":"ru"}}
+{"kind":"complaint","text":"man soft ishlatyapti, chit","att":1,"expect":{"category":"complaint.cheat","priority":"p1","lang":"uz"}}
+{"kind":"complaint","text":"5.2 оп","att":1,"expect":{"category":"complaint.cheat","priority":"p1"}}
+{"kind":"complaint","text":"убил меня без причины у банка","att":1,"expect":{"category":"complaint.dm","priority":"p2","lang":"ru"}}
+{"kind":"complaint","text":"дм в зелёной зоне","att":1,"expect":{"category":"complaint.dm","priority":"p2","lang":"ru"}}
+{"kind":"complaint","text":"дб на машине","att":1,"expect":{"category":"complaint.dm","priority":"p2","lang":"ru"}}
+{"kind":"complaint","text":"связал верёвкой в зз","att":1,"expect":{"category":"complaint.dm","priority":"p2","lang":"ru"}}
+{"kind":"complaint","text":"уход от рп","att":1,"expect":{"category":"complaint.dm","priority":"p2","lang":"ru"}}
+{"kind":"complaint","text":"нон рп коп","att":1,"expect":{"category":"complaint.dm","priority":"p2","lang":"ru"}}
+{"kind":"complaint","text":"moshina bilan urib ketdi, dm qildi","att":1,"expect":{"category":"complaint.dm","priority":"p2","lang":"uz"}}
+{"kind":"complaint","text":"he killed me for no reason near the bank, dm","att":1,"expect":{"category":"complaint.dm","priority":"p2","lang":"en"}}
+{"kind":"complaint","text":"взял деньги за машину и не отдал","att":1,"expect":{"category":"complaint.scam","priority":"p1","lang":"ru"}}
+{"kind":"complaint","text":"скам","att":1,"expect":{"category":"complaint.scam","priority":"p2","lang":"ru"}}
+{"kind":"complaint","text":"заскамил на дом и бизнес","att":1,"expect":{"category":"complaint.scam","priority":"p1","lang":"ru"}}
+{"kind":"complaint","text":"вымогает за возврат","att":1,"expect":{"category":"complaint.scam","priority":"p2","lang":"ru"}}
+{"kind":"complaint","text":"продаёт аккаунт за реал в тг","att":1,"expect":{"category":"complaint.rmt_ads","priority":"p1","lang":"ru"}}
+{"kind":"complaint","text":"рекламирует другой сервер","att":1,"expect":{"category":"complaint.rmt_ads","priority":"p1","lang":"ru"}}
+{"kind":"complaint","text":"админ выдал мут без причины","att":1,"expect":{"category":"complaint.admin","priority":"p2","lang":"ru"}}
+{"kind":"complaint","text":"не согласен с наказанием","att":1,"expect":{"category":"complaint.admin","priority":"p2","lang":"ru"}}
+{"kind":"complaint","text":"опру бан","att":1,"expect":{"category":"complaint.admin","priority":"p2","lang":"ru"}}
+{"kind":"complaint","text":"меня забанили ошибочно, прошу пересмотреть","att":1,"expect":{"category":"complaint.admin","priority":"p2","lang":"ru"}}
+{"kind":"complaint","text":"мешает ивенту","att":1,"expect":{"category":"complaint.other","priority":"p2","lang":"ru"}}
+{"kind":"complaint","text":"никнейм с оскорблением","att":1,"expect":{"category":"complaint.other","priority":"p2","lang":"ru"}}
+{"kind":"complaint","text":"фарм репортов","att":1,"expect":{"category":"complaint.other","priority":"p2","lang":"ru"}}
+{"kind":"complaint","text":"как купить дом","att":1,"expect":{"category":"complaint.invalid","priority":"p3","lang":"ru"}}
+{"kind":"complaint","text":"жб","att":1,"expect":{"category":"complaint.invalid","priority":"p3","lang":"ru"}}
+{"kind":"complaint","text":"вот он","att":1,"expect":{"category":"complaint.invalid","priority":"p3","lang":"ru"}}
+{"kind":"complaint","text":".","att":1,"expect":{"category":"complaint.invalid","priority":"p3"}}
+{"kind":"complaint","text":"Ivan_Petrov убил меня","att":0,"expect":{"category":"complaint.invalid","priority":"p3","lang":"ru"}}
+{"kind":"report","text":"помогите","att":0,"expect":{"category":"report.offtopic","priority":"p3","lang":"ru"}}
+{"kind":"report","text":"ау","att":0,"expect":{"category":"report.offtopic","priority":"p3"}}
+{"kind":"report","text":"привет","att":0,"expect":{"category":"report.offtopic","priority":"p3","lang":"ru"}}
+{"kind":"report","text":"+","att":0,"expect":{"category":"report.offtopic","priority":"p3","lang":"und"}}
+{"kind":"report","text":"Salom, yordam bering","att":0,"expect":{"category":"report.offtopic","priority":"p3","lang":"uz"}}
+{"kind":"report","text":"как устроиться в полицию","att":0,"expect":{"category":"report.question","priority":"p3","lang":"ru"}}
+{"kind":"report","text":"где взять лицензию?","att":0,"expect":{"category":"report.question","priority":"p3","lang":"ru"}}
+{"kind":"report","text":"how do I get a driver license?","att":0,"expect":{"category":"report.question","priority":"p3","lang":"en"}}
+{"kind":"report","text":"застрял в текстурах","att":0,"expect":{"category":"report.help","priority":"p2","lang":"ru"}}
+{"kind":"report","text":"помогите выбраться","att":0,"expect":{"category":"report.help","priority":"p2","lang":"ru"}}
+{"kind":"report","text":"переверните машину","att":0,"expect":{"category":"report.help","priority":"p2","lang":"ru"}}
+{"kind":"report","text":"admin help me i am stuck under the map","att":0,"expect":{"category":"report.help","priority":"p2","lang":"en"}}
+{"kind":"report","text":"меня дмят у спавна","att":0,"expect":{"category":"report.complaint","priority":"p2","lang":"ru"}}
+{"kind":"report","text":"оскорбляет","att":0,"expect":{"category":"report.complaint","priority":"p2","lang":"ru"}}
+{"kind":"report","text":"тут читер летает","att":0,"expect":{"category":"report.complaint","priority":"p2","lang":"ru"}}
+{"kind":"report","text":"пропала машина","att":0,"expect":{"category":"report.account","priority":"p0","lang":"ru"}}
+{"kind":"report","text":"взломали аккаунт","att":0,"expect":{"category":"report.account","priority":"p0","lang":"ru"}}
+{"kind":"report","text":"не могу зайти в аккаунт, забыл пароль","att":0,"expect":{"category":"report.account","priority":"p0","lang":"ru"}}
+{"kind":"report","text":"my account was hacked","att":0,"expect":{"category":"report.account","priority":"p0","lang":"en"}}
+{"kind":"report","text":"оплатил гк, не пришло","att":0,"expect":{"category":"report.payment","priority":"p0","lang":"ru"}}
+{"kind":"report","text":"оплатил донат, коины не пришли","att":0,"expect":{"category":"report.payment","priority":"p0","lang":"ru"}}
+{"kind":"report","text":"списали деньги с карты, верните","att":0,"expect":{"category":"report.payment","priority":"p0","lang":"ru"}}

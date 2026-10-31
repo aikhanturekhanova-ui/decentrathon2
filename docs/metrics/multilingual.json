@@ -1,0 +1,77 @@
+{
+  "note": "artificial cases written by the authors; a regression and coverage check, NOT accuracy on real tickets",
+  "cases": 57,
+  "status": {
+    "pass": 54,
+    "known_limitation": 3
+  },
+  "abuse_detection_on_cases": {
+    "tp": 32,
+    "fp": 0,
+    "fn": 2,
+    "tn": 23,
+    "precision": 1.0,
+    "recall": 0.941
+  },
+  "false_positives": [],
+  "false_negatives": [
+    {
+      "group": "lim_euphemism",
+      "status": "known_limitation",
+      "problems": [
+        "false negative: found []",
+        "type profanity not found (got [])"
+      ],
+      "limitation": "euphemisms without the word itself are not recognised"
+    },
+    {
+      "group": "lim_kk_insult_word",
+      "status": "known_limitation",
+      "problems": [
+        "false negative: found []",
+        "type insult not found (got [])"
+      ],
+      "limitation": "single-word Kazakh insults like «ит» (dog) are not in the lexicon (too ambiguous)"
+    }
+  ],
+  "failures": [
+    {
+      "group": "lim_kk_latin_ambiguous",
+      "status": "known_limitation",
+      "problems": [
+        "language uz != kk"
+      ],
+      "limitation": "Kazakh and Uzbek Latin share most words here: detected as uz"
+    },
+    {
+      "group": "lim_euphemism",
+      "status": "known_limitation",
+      "problems": [
+        "false negative: found []",
+        "type profanity not found (got [])"
+      ],
+      "limitation": "euphemisms without the word itself are not recognised"
+    },
+    {
+      "group": "lim_kk_insult_word",
+      "status": "known_limitation",
+      "problems": [
+        "false negative: found []",
+        "type insult not found (got [])"
+      ],
+      "limitation": "single-word Kazakh insults like «ит» (dog) are not in the lexicon (too ambiguous)"
+    }
+  ],
+  "real_valid_prevalence": {
+    "tickets": 1000,
+    "with_findings": 21,
+    "reported_abuse": 6,
+    "author_abusive": 3,
+    "accused_abusive": 2,
+    "real_life_threat": 0,
+    "mixed_language": 33,
+    "type:profanity": 17,
+    "type:insult": 10,
+    "type:hate_speech": 3
+  }
+}

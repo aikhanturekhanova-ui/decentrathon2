@@ -1,0 +1,26 @@
+{
+  "labelled_by": "AI assistant (NOT humans), blind to the service output, ambiguous rows excluded",
+  "rows": 110,
+  "category_accuracy": 0.8455,
+  "priority_macro_f1": 0.8928,
+  "priority_accuracy": 0.9182,
+  "accuracy_by_detected_lang": {
+    "kk": {
+      "n": 14,
+      "accuracy": 0.786
+    },
+    "ru": {
+      "n": 65,
+      "accuracy": 0.831
+    },
+    "uz": {
+      "n": 30,
+      "accuracy": 0.9
+    },
+    "und": {
+      "n": 1,
+      "accuracy": 1.0
+    }
+  },
+  "caveat": "small, biased, AI-labelled; use only to find bugs"
+}
